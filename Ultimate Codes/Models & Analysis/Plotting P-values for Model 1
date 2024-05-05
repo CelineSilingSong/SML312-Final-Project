@@ -1,0 +1,23 @@
+# Model 1 Plotting P-value for Model 1: Fixed Effect Panel Data Regression
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from linearmodels.panel import PooledOLS
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+
+# starting 2004:
+# The following values are scrapped from Model one estimate charts:
+P_value = [0.0045,0.0033,0.0015,0.0014,0.0100,0.0058,0.0194,0.0104,0.0124,0.0146,0.0008,0.0159,0.0784,0.2561,0.1804,0.3401]
+Year = list(range(2004, 2020))
+
+# Plotting them into a graph
+plt.plot(Year, P_value, marker='o', linestyle='-')
+plt.axhline(y=0.05, color='r', linestyle='--', label='Critical Value 0.05')  # adding the 0.05 threshold
+plt.xlabel('Year')
+plt.ylabel('P_value')
+plt.title('P_value vs Year')
+plt.grid(True)
+plt.show()
